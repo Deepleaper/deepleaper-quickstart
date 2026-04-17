@@ -8,9 +8,11 @@
     "demo:llm": "npx tsx examples/02-brain-with-llm.ts",
     "demo:agent": "npx tsx examples/03-full-agent.ts",
     "demo:evolve": "npx tsx examples/04-evolve-demo.ts",
-    "demo:all": "npm run demo:basic && npm run demo:llm && npm run demo:evolve"
+    "demo:workstation": "npx tsx examples/05-workstation.ts",
+    "demo:all": "npm run demo:basic && npm run demo:llm && npm run demo:evolve && npm run demo:agent && npm run demo:workstation"
   },
   "dependencies": {
+    "agent-workstation": "^1.1.1",
     "agentkits": "^1.7.0",
     "deepbrain": "^1.8.0",
     "opc-agent": "^1.3.0",

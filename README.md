@@ -80,7 +80,15 @@ npm run demo:evolve
 npm run demo:agent
 ```
 
-OAD 声明式配置、11 渠道支持、DeepBrain 集成。纯展示，无需 API Key。
+OAD 声明式配置、11 渠道支持、DeepBrain 集成。纯展示，无需任何依赖。
+
+### Demo 5：Agent Workstation — 虚拟工位
+
+```bash
+npm run demo:workstation
+```
+
+浏览 100+ 角色模板，查看 OAD 配置 + System Prompt。**无需 API Key。**
 
 ## 运行全部 Demo
 
@@ -95,14 +103,15 @@ examples/
 ├── 01-basic-brain.ts    # DeepBrain learn/recall
 ├── 02-brain-with-llm.ts # DeepBrain + LLM 带记忆对话
 ├── 03-full-agent.ts     # OPC Agent 声明式开发
-└── 04-evolve-demo.ts    # 知识进化 evolve
+├── 04-evolve-demo.ts    # 知识进化 evolve
+└── 05-workstation.ts    # Agent Workstation 虚拟工位
 ```
 
 ## 全部本地运行
 
-所有 Demo 默认使用 Ollama 本地模型，**无需任何 API Key，无需联网**。
+Demo 1-3 默认使用 Ollama 本地模型，Demo 4-5 无需任何服务。**全程无需 API Key，无需联网。**
 
-也支持 OpenAI / DeepSeek / Gemini / 通义千问等云端 provider：
+也支持云端 provider：
 ```bash
 export OPENAI_API_KEY=sk-xxx     # Demo 自动检测
 export DEEPSEEK_API_KEY=sk-xxx
@@ -136,11 +145,12 @@ ollama pull qwen2.5            # chat model (Demo 2)
 git clone https://github.com/Deepleaper/deepleaper-quickstart.git
 cd deepleaper-quickstart && npm install
 
-npm run demo:basic    # learn/recall — memory basics
-npm run demo:llm      # recall → LLM → learn — memory-augmented chat
-npm run demo:evolve   # 20 experiences → evolve → refined knowledge
-npm run demo:agent    # OPC Agent showcase (OAD, channels, integration)
-npm run demo:all      # run all demos
+npm run demo:basic       # learn/recall — memory basics
+npm run demo:llm         # recall → LLM → learn — memory-augmented chat
+npm run demo:evolve      # 20 experiences → evolve → refined knowledge
+npm run demo:agent       # OPC Agent showcase (OAD, channels, integration)
+npm run demo:workstation # browse 100+ role templates
+npm run demo:all         # run all demos
 ```
 
 Cloud providers also supported: set `OPENAI_API_KEY`, `DEEPSEEK_API_KEY`, `GEMINI_API_KEY`, or `LLM_API_KEY` + `LLM_BASE_URL` for custom endpoints.
