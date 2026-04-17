@@ -11,9 +11,10 @@
     "demo:all": "npm run demo:basic && npm run demo:llm && npm run demo:evolve"
   },
   "dependencies": {
-    "deepbrain": "^1.8.0",
     "agentkits": "^1.7.0",
-    "opc-agent": "^1.3.0"
+    "deepbrain": "^1.8.0",
+    "opc-agent": "^1.3.0",
+    "openai": "^4.0.0"
   },
   "devDependencies": {
     "tsx": "^4.7.0",
