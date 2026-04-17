@@ -9,7 +9,8 @@
     "demo:agent": "npx tsx examples/03-full-agent.ts",
     "demo:evolve": "npx tsx examples/04-evolve-demo.ts",
     "demo:workstation": "npx tsx examples/05-workstation.ts",
-    "demo:all": "npm run demo:basic && npm run demo:llm && npm run demo:evolve && npm run demo:agent && npm run demo:workstation"
+    "demo:brain": "npx tsx examples/06-developer-brain.ts",
+    "demo:all": "npm run demo:basic && npm run demo:llm && npm run demo:evolve && npm run demo:agent && npm run demo:workstation && npm run demo:brain"
   },
   "dependencies": {
     "agent-workstation": "^1.1.1",

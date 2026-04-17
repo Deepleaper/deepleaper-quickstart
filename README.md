@@ -90,6 +90,14 @@ npm run demo:workstation
 
 浏览 100+ 角色模板，查看 OAD 配置 + System Prompt。**无需 API Key。**
 
+### Demo 6：开发者知识库 — Brain (PKM)
+
+```bash
+npm run demo:brain
+```
+
+put(写入知识) → get(读取) → list(列表) → query(语义搜索)。**开发者自己的知识库。**
+
 ## 运行全部 Demo
 
 ```bash
@@ -104,7 +112,8 @@ examples/
 ├── 02-brain-with-llm.ts # DeepBrain + LLM 带记忆对话
 ├── 03-full-agent.ts     # OPC Agent 声明式开发
 ├── 04-evolve-demo.ts    # 知识进化 evolve
-└── 05-workstation.ts    # Agent Workstation 虚拟工位
+├── 05-workstation.ts    # Agent Workstation 虚拟工位
+└── 06-developer-brain.ts # 开发者知识库 Brain (PKM)
 ```
 
 ## 全部本地运行
@@ -150,6 +159,7 @@ npm run demo:llm         # recall → LLM → learn — memory-augmented chat
 npm run demo:evolve      # 20 experiences → evolve → refined knowledge
 npm run demo:agent       # OPC Agent showcase (OAD, channels, integration)
 npm run demo:workstation # browse 100+ role templates
+npm run demo:brain       # developer knowledge base (put/get/query)
 npm run demo:all         # run all demos
 ```
 
