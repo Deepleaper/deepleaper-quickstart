@@ -1,41 +1,40 @@
 /**
  * Demo 1: DeepBrain 基础用法
  * 
- * 需要设置 API Key（任选一个）:
- *   export GEMINI_API_KEY=xxx        (推荐，免费额度)
+ * 默认使用 Ollama（本地运行，无需 API Key）
+ * 请先安装 Ollama: https://ollama.com
+ * 然后拉取 embedding 模型: ollama pull nomic-embed-text
+ * 
+ * 也支持其他 provider:
+ *   export GEMINI_API_KEY=xxx
  *   export OPENAI_API_KEY=sk-xxx
- *   export DEEPSEEK_API_KEY=sk-xxx
  * 
  * 运行: npm run demo:basic
  */
 
 import { Brain, AgentBrain } from 'deepbrain';
 
-function detectProvider(): { provider: string; name: string } {
-  if (process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY) return { provider: 'gemini', name: 'Gemini' };
-  if (process.env.OPENAI_API_KEY) return { provider: 'openai', name: 'OpenAI' };
-  if (process.env.DEEPSEEK_API_KEY) return { provider: 'deepseek', name: 'DeepSeek' };
-  if (process.env.DASHSCOPE_API_KEY) return { provider: 'dashscope', name: '通义千问' };
-  return { provider: '', name: '' };
+function detectProvider(): string {
+  if (process.env.OPENAI_API_KEY) return 'openai';
+  if (process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY) return 'gemini';
+  if (process.env.DEEPSEEK_API_KEY) return 'deepseek';
+  if (process.env.DASHSCOPE_API_KEY) return 'dashscope';
+  return 'ollama';  // 默认用 Ollama，无需 API Key
 }
 
 async function main() {
   console.log('🧠 DeepBrain 基础 Demo\n');
   console.log('━'.repeat(50));
 
-  const { provider, name } = detectProvider();
-  if (!provider) {
-    console.log('\n⚠️  需要设置一个 API Key（用于 embedding）:\n');
-    console.log('   export GEMINI_API_KEY=xxx        # 推荐，有免费额度');
-    console.log('   export OPENAI_API_KEY=sk-xxx');
-    console.log('   export DEEPSEEK_API_KEY=sk-xxx');
-    console.log('   export DASHSCOPE_API_KEY=xxx     # 通义千问');
-    console.log('');
-    process.exit(0);
-  }
+  const provider = detectProvider();
 
   // 1. 初始化
-  console.log(`\n📦 Step 1: 初始化 Brain (embedding: ${name})...`);
+  console.log(`\n📦 Step 1: 初始化 Brain (embedding: ${provider})...`);
+  if (provider === 'ollama') {
+    console.log('   使用 Ollama 本地模型，请确保 Ollama 已启动');
+    console.log('   安装: https://ollama.com');
+    console.log('   拉模型: ollama pull nomic-embed-text\n');
+  }
   const brain = new Brain({ 
     embedding_provider: provider,
     db_path: './demo-brain.db'

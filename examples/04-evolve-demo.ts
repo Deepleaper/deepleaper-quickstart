@@ -1,9 +1,8 @@
 /**
  * Demo 4: 知识进化 (evolve) — DeepBrain 的核心差异化
  * 
- * 需要 API Key（任选一个）:
- *   export GEMINI_API_KEY=xxx
- *   export OPENAI_API_KEY=sk-xxx
+ * 默认使用 Ollama（本地，无需 API Key）
+ * 也支持: export GEMINI_API_KEY=xxx / OPENAI_API_KEY=sk-xxx
  * 
  * 演示：20 条零散经验 → evolve → 提炼成几条精华知识
  * 
@@ -21,15 +20,12 @@ async function main() {
   console.log('');
 
   // 1. Setup
-  const provider = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY ? 'gemini'
-    : process.env.OPENAI_API_KEY ? 'openai'
+  const provider = process.env.OPENAI_API_KEY ? 'openai'
+    : process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY ? 'gemini'
     : process.env.DEEPSEEK_API_KEY ? 'deepseek'
-    : process.env.DASHSCOPE_API_KEY ? 'dashscope' : '';
-  
-  if (!provider) {
-    console.log('⚠️  需要 API Key: export GEMINI_API_KEY=xxx');
-    process.exit(0);
-  }
+    : process.env.DASHSCOPE_API_KEY ? 'dashscope' : 'ollama';
+
+  console.log(`使用 embedding: ${provider}\n`);
 
   const brain = new Brain({ 
     embedding_provider: provider,
