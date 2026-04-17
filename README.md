@@ -23,6 +23,16 @@
 | [AgentKits](https://github.com/Deepleaper/agentkits) | 带记忆的 OpenRouter — 19 个 LLM Provider |
 | [Agent Workstation](https://github.com/Deepleaper/agent-workstation) | 虚拟工位 — 100+ 角色模板 |
 
+## 前置条件
+
+安装 [Ollama](https://ollama.com)（本地运行，免费）：
+
+```bash
+# 安装后拉取模型
+ollama pull nomic-embed-text   # embedding 模型（274MB）
+ollama pull qwen2.5            # chat 模型（Demo 2 需要）
+```
+
 ## 快速开始
 
 ```bash
@@ -31,38 +41,45 @@ cd deepleaper-quickstart
 npm install
 ```
 
-### Demo 1：DeepBrain 基础（需要 API Key）
+### Demo 1：DeepBrain 基础 — learn/recall
 
 ```bash
 npm run demo:basic
 ```
 
-Agent 学习 → 记忆 → 检索，3 个 API 搞定。
+Agent 学习 5 条经验 → 语义检索 → 精准召回。**默认用 Ollama，无需 API Key。**
 
-### Demo 2：DeepBrain + LLM（需要 API Key）
+### Demo 2：DeepBrain + LLM 对话（带记忆）
 
 ```bash
-export OPENAI_API_KEY=sk-xxx   # 或 DEEPSEEK_API_KEY
 npm run demo:llm
 ```
 
-每次 LLM 调用自动 recall + learn。
+recall(检索记忆) → LLM(生成回复) → learn(存储经验)。**默认用 Ollama，无需 API Key。**
 
-### Demo 3：知识进化 evolve（需要 API Key）
+也支持外部 LLM：
+```bash
+export LLM_API_KEY=sk-xxx
+export LLM_BASE_URL=http://your-api:8235
+export LLM_MODEL=your-model
+npm run demo:llm
+```
+
+### Demo 3：知识进化 evolve
 
 ```bash
 npm run demo:evolve
 ```
 
-看 50 条零散经验如何被提炼成 5 条精华知识。
+20 条零散经验 → evolve → 提炼成精华知识。**这是 DeepBrain 的核心差异化。**
 
-### Demo 4：完整 Agent（需要 API Key）
+### Demo 4：OPC Agent 展示
 
 ```bash
 npm run demo:agent
 ```
 
-用 opc-agent 创建一个带记忆的完整 Agent。
+OAD 声明式配置、11 渠道支持、DeepBrain 集成。纯展示，无需 API Key。
 
 ## 运行全部 Demo
 
@@ -74,38 +91,67 @@ npm run demo:all
 
 ```
 examples/
-├── 01-basic-brain.ts    # DeepBrain 单独使用
-├── 02-brain-with-llm.ts # DeepBrain + AgentKits
-├── 03-full-agent.ts     # OPC Agent 完整 Agent
-└── 04-evolve-demo.ts    # 知识进化演示
+├── 01-basic-brain.ts    # DeepBrain learn/recall
+├── 02-brain-with-llm.ts # DeepBrain + LLM 带记忆对话
+├── 03-full-agent.ts     # OPC Agent 声明式开发
+└── 04-evolve-demo.ts    # 知识进化 evolve
 ```
 
-## 需要 API Key 也能跑
+## 全部本地运行
 
-Demo 1 和 Demo 4 不需要任何 API Key，用 DeepBrain 本地模式即可体验核心功能。
+所有 Demo 默认使用 Ollama 本地模型，**无需任何 API Key，无需联网**。
+
+也支持 OpenAI / DeepSeek / Gemini / 通义千问等云端 provider：
+```bash
+export OPENAI_API_KEY=sk-xxx     # Demo 自动检测
+export DEEPSEEK_API_KEY=sk-xxx
+export GEMINI_API_KEY=xxx
+```
 
 ## 下一步
 
-- 📖 [DeepBrain 文档](https://github.com/Deepleaper/deepbrain)
-- 🤖 [OPC Agent 文档](https://github.com/Deepleaper/opc-agent)
-- ⚡ [AgentKits 文档](https://github.com/Deepleaper/agentkits)
-- 🏢 [Agent Workstation 模板](https://github.com/Deepleaper/agent-workstation)
+- 📖 [DeepBrain 文档](https://github.com/Deepleaper/deepbrain) — Agent 记忆引擎
+- 🤖 [OPC Agent 文档](https://github.com/Deepleaper/opc-agent) — Agent OS
+- ⚡ [AgentKits 文档](https://github.com/Deepleaper/agentkits) — 带记忆的 OpenRouter
+- 🏢 [Agent Workstation](https://github.com/Deepleaper/agent-workstation) — 100+ 角色模板
 
 ---
 
 ## English
 
-**5-minute quickstart** for Deepleaper's open-source AI Agent suite.
+**5-minute quickstart** for Deepleaper's open-source AI Agent suite. **All demos run locally with Ollama — no API keys needed.**
+
+### Prerequisites
+
+Install [Ollama](https://ollama.com), then:
+```bash
+ollama pull nomic-embed-text   # embedding model
+ollama pull qwen2.5            # chat model (Demo 2)
+```
+
+### Run
 
 ```bash
 git clone https://github.com/Deepleaper/deepleaper-quickstart.git
 cd deepleaper-quickstart && npm install
-npm run demo:basic   # Needs API key
-npm run demo:llm     # Needs OPENAI_API_KEY
-npm run demo:evolve  # Needs API key
+
+npm run demo:basic    # learn/recall — memory basics
+npm run demo:llm      # recall → LLM → learn — memory-augmented chat
+npm run demo:evolve   # 20 experiences → evolve → refined knowledge
+npm run demo:agent    # OPC Agent showcase (OAD, channels, integration)
+npm run demo:all      # run all demos
 ```
 
-Four projects: [DeepBrain](https://github.com/Deepleaper/deepbrain) (memory engine) · [OPC Agent](https://github.com/Deepleaper/opc-agent) (agent OS) · [AgentKits](https://github.com/Deepleaper/agentkits) (LLM router + memory) · [Workstation](https://github.com/Deepleaper/agent-workstation) (role templates)
+Cloud providers also supported: set `OPENAI_API_KEY`, `DEEPSEEK_API_KEY`, `GEMINI_API_KEY`, or `LLM_API_KEY` + `LLM_BASE_URL` for custom endpoints.
+
+### Projects
+
+| Project | What it does |
+|---------|-------------|
+| [DeepBrain](https://github.com/Deepleaper/deepbrain) | Agent memory engine — learn/recall/evolve |
+| [OPC Agent](https://github.com/Deepleaper/opc-agent) | Agent OS — full lifecycle management |
+| [AgentKits](https://github.com/Deepleaper/agentkits) | LLM router + memory — 19 providers |
+| [Agent Workstation](https://github.com/Deepleaper/agent-workstation) | Virtual workstation — 100+ role templates |
 
 ## License
 
