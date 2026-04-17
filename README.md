@@ -7,6 +7,7 @@
 [![DeepBrain](https://img.shields.io/npm/v/deepbrain?label=deepbrain)](https://www.npmjs.com/package/deepbrain)
 [![OPC Agent](https://img.shields.io/npm/v/opc-agent?label=opc-agent)](https://www.npmjs.com/package/opc-agent)
 [![AgentKits](https://img.shields.io/npm/v/agentkits?label=agentkits)](https://www.npmjs.com/package/agentkits)
+[![Agent Workstation](https://img.shields.io/npm/v/agent-workstation?label=agent-workstation)](https://www.npmjs.com/package/agent-workstation)
 
 </div>
 
