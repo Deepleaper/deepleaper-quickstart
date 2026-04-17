@@ -1,47 +1,70 @@
 /**
- * Demo 1: DeepBrain 基础用法
+ * Demo 1: DeepBrain 基础 — learn / recall
  * 
- * 默认使用 Ollama（本地运行，无需 API Key）
- * 请先安装 Ollama: https://ollama.com
- * 然后拉取 embedding 模型: ollama pull nomic-embed-text
- * 
- * 也支持其他 provider:
- *   export GEMINI_API_KEY=xxx
- *   export OPENAI_API_KEY=sk-xxx
+ * 默认使用 Ollama 本地运行，无需 API Key
+ * 前置: ollama pull nomic-embed-text
  * 
  * 运行: npm run demo:basic
  */
 
 import { Brain, AgentBrain } from 'deepbrain';
 
-function detectProvider(): string {
-  if (process.env.OPENAI_API_KEY) return 'openai';
-  if (process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY) return 'gemini';
-  if (process.env.DEEPSEEK_API_KEY) return 'deepseek';
-  if (process.env.DASHSCOPE_API_KEY) return 'dashscope';
-  return 'ollama';  // 默认用 Ollama，无需 API Key
+async function checkOllama(): Promise<boolean> {
+  try {
+    const res = await fetch('http://localhost:11434/api/tags');
+    return res.ok;
+  } catch { return false; }
 }
 
 async function main() {
-  console.log('🧠 DeepBrain 基础 Demo\n');
+  console.log('🧠 DeepBrain 基础 Demo — learn / recall\n');
   console.log('━'.repeat(50));
 
-  const provider = detectProvider();
+  // 检测 provider
+  let provider = 'ollama';
+  if (process.env.OPENAI_API_KEY) provider = 'openai';
+  else if (process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY) provider = 'gemini';
+  else if (process.env.DEEPSEEK_API_KEY) provider = 'deepseek';
+  else if (process.env.DASHSCOPE_API_KEY) provider = 'dashscope';
 
-  // 1. 初始化
-  console.log(`\n📦 Step 1: 初始化 Brain (embedding: ${provider})...`);
+  // Ollama 健康检查
   if (provider === 'ollama') {
-    console.log('   使用 Ollama 本地模型，请确保 Ollama 已启动');
-    console.log('   安装: https://ollama.com');
-    console.log('   拉模型: ollama pull nomic-embed-text\n');
+    const ok = await checkOllama();
+    if (!ok) {
+      console.log('\n❌ Ollama 未启动！\n');
+      console.log('请先安装并启动 Ollama:');
+      console.log('  1. 下载: https://ollama.com');
+      console.log('  2. 启动 Ollama');
+      console.log('  3. 拉取模型: ollama pull nomic-embed-text');
+      console.log('  4. 重新运行: npm run demo:basic\n');
+      console.log('或者使用云端 provider:');
+      console.log('  export OPENAI_API_KEY=sk-xxx');
+      console.log('  export GEMINI_API_KEY=xxx\n');
+      process.exit(1);
+    }
   }
-  const brain = new Brain({ 
-    embedding_provider: provider,
-    db_path: './demo-brain.db'
-  });
-  await brain.connect();
-  const agent = new AgentBrain(brain, 'demo-sales-agent');
-  console.log('✅ Brain 初始化完成\n');
+
+  console.log(`\n📦 Step 1: 初始化 Brain (embedding: ${provider})...`);
+  
+  let brain: Brain;
+  let agent: AgentBrain;
+  try {
+    brain = new Brain({ 
+      embedding_provider: provider,
+      db_path: './demo-brain.db'
+    });
+    await brain.connect();
+    agent = new AgentBrain(brain, 'demo-sales-agent');
+    console.log('✅ Brain 初始化完成\n');
+  } catch (e: any) {
+    console.error(`\n❌ Brain 初始化失败: ${e.message}`);
+    if (provider === 'ollama') {
+      console.log('\n请确认:');
+      console.log('  1. Ollama 已启动 (ollama serve)');
+      console.log('  2. 已拉取模型: ollama pull nomic-embed-text\n');
+    }
+    process.exit(1);
+  }
 
   // 2. 学习
   console.log('📝 Step 2: Agent 开始学习...\n');
@@ -55,8 +78,12 @@ async function main() {
   ];
 
   for (const exp of experiences) {
-    await agent.learn(exp);
-    console.log(`  📌 学到: ${exp.action}`);
+    try {
+      await agent.learn(exp);
+      console.log(`  📌 学到: ${exp.action}`);
+    } catch (e: any) {
+      console.error(`  ❌ 学习失败: ${e.message}`);
+    }
   }
   console.log(`\n✅ Agent 学习了 ${experiences.length} 条经验\n`);
 
@@ -72,27 +99,35 @@ async function main() {
 
   for (const q of queries) {
     console.log(`  ❓ 问: "${q}"`);
-    const memories = await agent.recall(q);
-    if (memories && memories.length > 0) {
-      console.log(`  💡 答: ${memories[0].text?.slice(0, 80)}...`);
-      console.log(`  📊 相关度: ${(memories[0].score * 100).toFixed(0)}%\n`);
-    } else {
-      console.log(`  💡 (未找到相关记忆)\n`);
+    try {
+      const memories = await agent.recall(q);
+      if (memories && memories.length > 0) {
+        const text = memories[0].text || JSON.stringify(memories[0]);
+        console.log(`  💡 答: ${text.slice(0, 80)}${text.length > 80 ? '...' : ''}`);
+        if (memories[0].score !== undefined) {
+          console.log(`  📊 相关度: ${(memories[0].score * 100).toFixed(0)}%`);
+        }
+      } else {
+        console.log(`  💡 (未找到相关记忆)`);
+      }
+    } catch (e: any) {
+      console.error(`  ❌ 检索失败: ${e.message}`);
     }
+    console.log('');
   }
 
   // 4. 总结
   console.log('━'.repeat(50));
-  console.log('🎉 Demo 完成！');
-  console.log('');
-  console.log('你刚刚体验了 DeepBrain 的核心功能：');
+  console.log('🎉 Demo 完成！\n');
+  console.log('你刚刚体验了 DeepBrain 的核心功能:');
   console.log('  · learn()  — 存储经验');
-  console.log('  · recall() — 语义检索');
-  console.log('');
-  console.log('下一步试试: npm run demo:evolve (知识进化)');
-  console.log('');
+  console.log('  · recall() — 语义检索\n');
+  console.log('下一步: npm run demo:llm (带记忆的 LLM 对话)\n');
 
-  await brain.disconnect();
+  await brain!.disconnect();
 }
 
-main().catch(console.error);
+main().catch(e => {
+  console.error(`\n💥 未预期错误: ${e.message}\n`);
+  process.exit(1);
+});
