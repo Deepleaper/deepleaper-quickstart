@@ -1,9 +1,11 @@
 /**
  * Demo 4: 知识进化 (evolve) — DeepBrain 的核心差异化
  * 
- * 无需 API Key！
+ * 需要 API Key（任选一个）:
+ *   export GEMINI_API_KEY=xxx
+ *   export OPENAI_API_KEY=sk-xxx
  * 
- * 演示：50 条零散经验 → evolve → 提炼成几条精华知识
+ * 演示：20 条零散经验 → evolve → 提炼成几条精华知识
  * 
  * 运行: npm run demo:evolve
  */
@@ -19,8 +21,18 @@ async function main() {
   console.log('');
 
   // 1. Setup
+  const provider = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY ? 'gemini'
+    : process.env.OPENAI_API_KEY ? 'openai'
+    : process.env.DEEPSEEK_API_KEY ? 'deepseek'
+    : process.env.DASHSCOPE_API_KEY ? 'dashscope' : '';
+  
+  if (!provider) {
+    console.log('⚠️  需要 API Key: export GEMINI_API_KEY=xxx');
+    process.exit(0);
+  }
+
   const brain = new Brain({ 
-    embedding_provider: 'none',
+    embedding_provider: provider,
     db_path: './demo-brain-evolve.db'
   });
   await brain.connect();
