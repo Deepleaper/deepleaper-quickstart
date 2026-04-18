@@ -321,6 +321,17 @@ e2e-cloud/                    ⭐⭐⭐⭐ Cloud API 端到端
 
 ---
 
+## ❓ 常见问题 / Troubleshooting
+
+遇到问题？查看 [FAQ.md](./FAQ.md) 获取完整的常见问题解答。
+
+Quick fixes:
+- 版本问题: `rm -rf node_modules package-lock.json && npm install`
+- Ollama 未启动: `ollama serve`（另开终端）
+- Node 版本: 推荐 Node 22 LTS
+
+---
+
 <details>
 <summary><h2>🌍 English Version</h2></summary>
 
