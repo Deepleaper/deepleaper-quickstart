@@ -136,20 +136,110 @@ npm run demo:roles
 
 搜索角色模板、获取热门角色、验证自定义角色配置。**agent-workstation 1.2.0 新功能。**
 
+### Demo 11：CLI Chat — 编程式对话
+
+```bash
+npm run demo:cli-chat
+```
+
+用 BaseAgent + InMemoryStore 创建 agent，模拟多轮对话。**需要 Ollama qwen2.5。**
+
+### Demo 12：Daemon Cron — 定时任务
+
+```bash
+npm run demo:daemon
+```
+
+Scheduler API 注册定时任务（健康检查、每日摘要）。展示 cron 调度能力。
+
+### Demo 13：Auto-Skill Learning — 技能学习
+
+```bash
+npm run demo:auto-skill
+```
+
+SkillLearner 保存/加载/匹配技能。Agent 从对话中自动提炼可复用 skill。
+
+### Demo 14：Sub-Agent Parallel — 并行子代理
+
+```bash
+npm run demo:parallel
+```
+
+SubAgentManager API：spawn、list、kill。展示多代理并行编排。
+
+### Demo 15：Telegram Bot — 机器人配置
+
+```bash
+npm run demo:telegram
+```
+
+展示 Telegram bot 的 OAD YAML 配置。设置 `TELEGRAM_BOT_TOKEN` 即可运行。
+
+### Demo 16：Built-in Tools — 内置工具
+
+```bash
+npm run demo:tools
+```
+
+列举所有内置工具（datetime、file_operations 等），并实际调用。
+
+### Demo 17：MCP Client — 模型上下文协议
+
+```bash
+npm run demo:mcp
+```
+
+展示 MCPClient API：connect → listTools → callTool → disconnect。
+
+### Demo 18：Full Agent YAML — 完整配置
+
+```bash
+npm run demo:full-yaml
+```
+
+一个包含所有功能的 agent.yaml：多渠道、记忆、工具、调度、学习。
+
+### Demo 19：4-Package Integration — 四件套集成
+
+```bash
+npm run demo:integration
+```
+
+DeepBrain + OPC Agent + AgentKits + Agent Workstation 联合演示。
+
+### Demo 20：Cost Calculator — 成本计算器
+
+```bash
+npm run demo:cost
+```
+
+对比 GPT-4o / Claude / DeepSeek / GPT-4o-mini 在不同工作负载下的 token 成本。
+
 ## 目录结构
 
 ```
 examples/
-├── 01-basic-brain.ts      # DeepBrain learn/recall
-├── 02-brain-with-llm.ts   # DeepBrain + LLM 带记忆对话
-├── 03-full-agent.ts       # OPC Agent 声明式开发
-├── 04-evolve-demo.ts      # 知识进化 evolve
-├── 05-workstation.ts      # Agent Workstation 虚拟工位
-├── 06-developer-brain.ts  # 开发者知识库 Brain (PKM)
-├── 07-model-recommend.ts  # 模型推荐 + 成本估算 (NEW)
-├── 08-auto-skill.ts       # 自主技能学习概念 (NEW)
-├── 09-subagent.ts         # Sub-Agent 并行执行概念 (NEW)
-└── 10-role-search.ts      # 角色搜索 + 验证 (NEW)
+├── 01-basic-brain.ts         # DeepBrain learn/recall
+├── 02-brain-with-llm.ts      # DeepBrain + LLM 带记忆对话
+├── 03-full-agent.ts          # OPC Agent 声明式开发
+├── 04-evolve-demo.ts         # 知识进化 evolve
+├── 05-workstation.ts         # Agent Workstation 虚拟工位
+├── 06-developer-brain.ts     # 开发者知识库 Brain (PKM)
+├── 07-model-recommend.ts     # 模型推荐 + 成本估算
+├── 08-auto-skill.ts          # 自主技能学习概念
+├── 09-subagent.ts            # Sub-Agent 并行执行概念
+├── 10-role-search.ts         # 角色搜索 + 验证
+├── 11-cli-chat.ts            # 编程式多轮对话 (NEW)
+├── 12-daemon-cron.ts         # 定时任务调度 (NEW)
+├── 13-auto-skill-learning.ts # 技能学习系统 (NEW)
+├── 14-subagent-parallel.ts   # 并行子代理 (NEW)
+├── 15-telegram-bot.ts        # Telegram 机器人 (NEW)
+├── 16-built-in-tools.ts      # 内置工具 (NEW)
+├── 17-mcp-client.ts          # MCP 客户端 (NEW)
+├── 18-full-agent-yaml.ts     # 完整 YAML 配置 (NEW)
+├── 19-brain-with-agent.ts    # 四件套集成 (NEW)
+└── 20-cost-calculator.ts     # 成本计算器 (NEW)
 ```
 
 ## 全部本地运行
@@ -200,6 +290,16 @@ npm run demo:model       # model recommendation + cost estimation (NEW)
 npm run demo:skill       # auto-skill learning concept (NEW)
 npm run demo:subagent    # sub-agent parallel execution concept (NEW)
 npm run demo:roles       # role search + validation (NEW)
+npm run demo:cli-chat    # programmatic multi-turn chat (NEW)
+npm run demo:daemon      # cron/scheduled jobs (NEW)
+npm run demo:auto-skill  # skill learning system (NEW)
+npm run demo:parallel    # parallel sub-agents (NEW)
+npm run demo:telegram    # Telegram bot config (NEW)
+npm run demo:tools       # built-in tools (NEW)
+npm run demo:mcp         # MCP client (NEW)
+npm run demo:full-yaml   # complete agent.yaml (NEW)
+npm run demo:integration # 4-package integration (NEW)
+npm run demo:cost        # model cost calculator (NEW)
 npm run demo:all         # run all demos
 ```
 
