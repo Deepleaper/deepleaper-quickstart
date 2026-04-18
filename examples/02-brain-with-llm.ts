@@ -90,7 +90,7 @@ async function main() {
   try {
     brain = new Brain({
       embedding_provider: embeddingProvider,
-      db_path: './demo-brain-llm.db',
+      database: './demo-brain-llm',
     });
     await brain.connect();
     agent = new AgentBrain(brain, 'smart-assistant');
@@ -131,7 +131,7 @@ async function main() {
     let context = '';
     try {
       const memories = await agent.recall(q);
-      context = memories?.map((m) => m.text).join('\n') || '';
+      context = memories?.map((m) => m.chunk_text).join('\n') || '';
       console.log(`  [recall] 找到 ${memories?.length || 0} 条相关记忆`);
     } catch (e: any) {
       console.log(`  [recall] 检索失败: ${e.message}`);

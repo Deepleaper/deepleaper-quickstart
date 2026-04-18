@@ -48,7 +48,7 @@ async function main() {
   try {
     brain = new Brain({
       embedding_provider: provider,
-      db_path: './demo-brain-pkm.db',
+      database: './demo-brain-pkm',
     });
     await brain.connect();
     console.log('[OK] Brain 初始化成功\n');
@@ -86,7 +86,7 @@ async function main() {
 
   for (const page of pages) {
     try {
-      await brain.put(page.slug, page.body, page.title);
+      await brain.put(page.slug, { type: 'knowledge', title: page.title, compiled_truth: page.body });
       console.log(`  [put] ${page.slug} — ${page.title}`);
     } catch (e: any) {
       console.error(`  [error] put 失败: ${e.message}`);
@@ -102,8 +102,7 @@ async function main() {
     const page = await brain.get('docker-cheatsheet');
     if (page) {
       console.log(`  Title: ${page.title}`);
-      console.log(`  Body:  ${page.body.slice(0, 100)}...`);
-      console.log(`  Chunks: ${page.chunks?.length || '?'} 个`);
+      console.log(`  Body:  ${page.compiled_truth.slice(0, 100)}...`);
     }
   } catch (e: any) {
     console.error(`  [error] get 失败: ${e.message}`);
@@ -142,7 +141,7 @@ async function main() {
       const results = await brain.query(q);
       if (results && results.length > 0) {
         const top = results[0];
-        const text = top.text || top.body || JSON.stringify(top);
+        const text = top.chunk_text || JSON.stringify(top);
         console.log(`  [found] 页面: ${top.slug || top.title || '未知'}`);
         console.log(`  [match] ${text.slice(0, 80)}...`);
         if (top.score !== undefined) {

@@ -5,8 +5,9 @@
     "moduleResolution": "bundler",
     "esModuleInterop": true,
     "strict": true,
+    "skipLibCheck": true,
     "outDir": "dist",
     "declaration": true
   },
-  "include": ["examples/**/*.ts"]
+  "include": ["examples/**/*.ts", "agent-workstation.d.ts"]
 }

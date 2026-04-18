@@ -32,11 +32,9 @@ try {
     console.log(`You: ${msg}`);
     const response = await agent.handleMessage({
       id: String(Date.now()),
+      role: 'user',
       content: msg,
-      sender: 'user',
-      channel: 'demo',
-      sessionId: 'demo-1',
-      timestamp: new Date(),
+      timestamp: Date.now(),
     });
     console.log(`Agent: ${response.content}\n`);
   }

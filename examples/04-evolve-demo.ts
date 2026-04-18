@@ -48,7 +48,7 @@ async function main() {
   try {
     brain = new Brain({
       embedding_provider: provider,
-      db_path: './demo-brain-evolve.db',
+      database: './demo-brain-evolve',
     });
     await brain.connect();
     agent = new AgentBrain(brain, 'evolve-demo');
@@ -110,8 +110,8 @@ async function main() {
     const report = await agent.evolve();
     console.log('[OK] 进化完成:');
     console.log(`  - 处理: ${report.tracesProcessed || 0} 条经验`);
-    console.log(`  - 生成: ${report.knowledgeCreated || 0} 条精炼知识`);
-    console.log(`  - 晋升: ${report.promoted || 0} 条\n`);
+    console.log(`  - 生成: ${report.pagesCreated || 0} 条精炼知识`);
+    console.log(`  - 晋升: ${report.pagesPromoted || 0} 条\n`);
   } catch (e: any) {
     console.log(`  [WARN] evolve 出错: ${e.message}`);
     console.log('  (evolve 需要 LLM 做语义分析,纯 embedding 环境下仅做基础聚合)\n');

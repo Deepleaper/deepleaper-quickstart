@@ -7,7 +7,6 @@
  */
 
 import { Brain } from 'deepbrain';
-import { BaseAgent, InMemoryStore } from 'opc-agent';
 import { recommendModel } from 'agentkits';
 import { getPopularRoles } from 'agent-workstation';
 

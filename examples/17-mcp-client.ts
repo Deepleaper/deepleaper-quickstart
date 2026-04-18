@@ -6,7 +6,6 @@
  * 运行: npm run demo:mcp
  */
 
-import { MCPClient } from 'opc-agent';
 
 console.log('\n=== Demo 17: MCP Client ===\n');
 

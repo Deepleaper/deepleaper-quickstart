@@ -7,7 +7,6 @@
  * 运行: npm run demo:telegram
  */
 
-import { AgentRuntime } from 'opc-agent';
 
 console.log('\n=== Demo 15: Telegram Bot 配置 ===\n');
 

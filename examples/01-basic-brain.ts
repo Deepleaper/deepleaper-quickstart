@@ -53,7 +53,7 @@ async function main() {
   try {
     brain = new Brain({
       embedding_provider: provider,
-      db_path: './demo-brain.db',
+      database: './demo-brain-basic',
     });
     await brain.connect();
     agent = new AgentBrain(brain, 'demo-sales-agent');
@@ -99,7 +99,7 @@ async function main() {
     try {
       const memories = await agent.recall(q);
       if (memories && memories.length > 0) {
-        const text = memories[0].text || JSON.stringify(memories[0]);
+        const text = memories[0].chunk_text || JSON.stringify(memories[0]);
         console.log(`  [found] ${text.slice(0, 80)}${text.length > 80 ? '...' : ''}`);
         if (memories[0].score !== undefined) {
           console.log(`  [score] 匹配度: ${(memories[0].score * 100).toFixed(0)}%`);
