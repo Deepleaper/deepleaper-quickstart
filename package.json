@@ -28,10 +28,10 @@
     "demo:all": "npm run demo:basic && npm run demo:llm && npm run demo:evolve && npm run demo:agent && npm run demo:workstation && npm run demo:brain && npm run demo:model && npm run demo:roles"
   },
   "dependencies": {
-    "agent-workstation": "^1.2.0",
-    "agentkits": "^1.8.0",
-    "deepbrain": "^1.9.0",
-    "opc-agent": "^1.4.0",
+    "agent-workstation": "^2.0.0",
+    "agentkits": "^1.10.0",
+    "deepbrain": "^1.11.0",
+    "opc-agent": "^3.0.0",
     "openai": "^4.0.0"
   },
   "devDependencies": {
