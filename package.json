@@ -24,6 +24,7 @@
     "demo:full-yaml": "npx tsx examples/18-full-agent-yaml.ts",
     "demo:integration": "npx tsx examples/19-brain-with-agent.ts",
     "demo:cost": "npx tsx examples/20-cost-calculator.ts",
+    "demo:seeds": "npx tsx examples/21-brain-seeds.ts",
     "demo:all": "npm run demo:basic && npm run demo:llm && npm run demo:evolve && npm run demo:agent && npm run demo:workstation && npm run demo:brain && npm run demo:model && npm run demo:roles"
   },
   "dependencies": {

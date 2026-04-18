@@ -268,6 +268,7 @@ cd e2e-cloud && npm install && npm start
 | 18-full-agent-yaml | 完整 YAML 配置 | `npm run demo:full-yaml` |
 | 19-brain-with-agent | 四件套集成 | `npm run demo:integration` |
 | 20-cost-calculator | 成本计算器 | `npm run demo:cost` |
+| 21-brain-seeds | 三层知识种子 | `npm run demo:seeds` |
 
 ---
 
@@ -304,6 +305,7 @@ examples/
 ├── 09-subagent.ts            ⭐⭐⭐ 多 Agent 协作
 ├── 10-role-search.ts         ⭐   角色搜索 + 验证
 ├── 11~20                     进阶 Demo（CLI/Cron/MCP/集成等）
+├── 21-brain-seeds.ts         ⭐⭐  三层知识种子 + 知识进化
 e2e-local/                    ⭐⭐⭐⭐ Ollama 全本地端到端
 e2e-cloud/                    ⭐⭐⭐⭐ Cloud API 端到端
 ```
@@ -407,6 +409,7 @@ npm run demo:mcp         # MCP client
 npm run demo:full-yaml   # Complete agent.yaml
 npm run demo:integration # 4-package integration
 npm run demo:cost        # Model cost calculator
+npm run demo:seeds       # 3-tier brain seeds
 ```
 
 ## License
