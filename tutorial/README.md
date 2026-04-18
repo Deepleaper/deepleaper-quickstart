@@ -147,6 +147,9 @@ User asks "What's your return policy?"
 5. **Try different models** — Change `spec.model` in `agent.yaml`
 6. **Use role templates** — Call `getRole('customer-service', 'support')` from agent-workstation
 7. **Add agentkits features** — Use `createChat()`, `createRAG()`, tool calling, etc.
+8. **Model recommendation** — Use `recommendModel()` to find the best model for your task
+9. **Cost estimation** — Use `estimateModelCost()` before committing to a model
+10. **Search roles** — Use `searchRoles()` and `getPopularRoles()` to discover templates
 
 ## Environment Variables 环境变量
 
@@ -159,10 +162,10 @@ User asks "What's your return policy?"
 
 | Package | Version | Role |
 |---------|---------|------|
-| `deepbrain` | 1.8.x | Brain + AgentBrain — persistent semantic memory |
-| `opc-agent` | 1.3.x | Agent runtime, channels, skills, OAD config |
-| `agentkits` | 1.7.x | Multi-provider LLM & embedding toolkit |
-| `agent-workstation` | 1.1.x | Role templates and categories |
+| `deepbrain` | 1.9.x | Brain + AgentBrain — persistent semantic memory + export/import |
+| `opc-agent` | 1.4.x | Agent runtime, CLI TUI, daemon, cron, auto-skill, sub-agents |
+| `agentkits` | 1.8.x | Multi-provider LLM & embedding + model recommend + cost estimation |
+| `agent-workstation` | 1.2.x | Role templates, search, validation |
 
 ## License
 
