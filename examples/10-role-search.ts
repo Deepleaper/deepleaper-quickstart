@@ -1,65 +1,96 @@
 /**
- * Demo 10: Role Search & Validation (agent-workstation 1.2.0)
+ * Demo 10: 角色搜索 + 验证 (agent-workstation 1.2.0)
  *
- * Shows the new search and discovery features:
- * - searchRoles(): fuzzy search across all roles
- * - getPopularRoles(): curated list of most-used roles
- * - validateRole(): check if a role config is valid
- * - getRole(): fetch a specific role with rich prompts
+ * 搜索角色模板、获取热门角色、验证自定义角色配置
+ * 无需 API Key
  *
- * No API keys needed.
+ * 运行: npm run demo:roles
  */
 
 import { searchRoles, validateRole, getPopularRoles, getRole } from 'agent-workstation';
 
 function main() {
-  console.log('=== Demo 10: Role Search & Validation ===\n');
+  console.log('\n=== Demo 10: 角色搜索 + 验证 ===\n');
+  console.log('='.repeat(50));
 
-  // --- 1. Get popular roles ---
-  console.log('🌟 Popular roles:');
-  const popular = getPopularRoles();
-  console.log(popular);
-
-  // --- 2. Search roles by keyword ---
-  console.log('\n🔍 Searching for "developer" roles:');
-  const devResults = searchRoles('developer');
-  console.log(devResults);
-
-  console.log('\n🔍 Searching for "marketing" roles:');
-  const mktResults = searchRoles('marketing');
-  console.log(mktResults);
-
-  console.log('\n🔍 Searching for "data" roles:');
-  const dataResults = searchRoles('data');
-  console.log(dataResults);
-
-  // --- 3. Get a specific role ---
-  console.log('\n📋 Getting "developer/fullstack" role:');
-  const role = getRole('developer', 'fullstack');
-  if (role) {
-    console.log(`  Name: ${role.name}`);
-    console.log(`  Description: ${role.description}`);
-    console.log(`  System prompt length: ${role.systemPrompt?.length || 0} chars`);
-  } else {
-    console.log('  (role not found — try a different category/name)');
+  // 1. 热门角色
+  console.log('\n>> 热门角色:');
+  try {
+    const popular = getPopularRoles();
+    console.log(JSON.stringify(popular, null, 2));
+  } catch (e: any) {
+    console.log(`  [error] ${e.message}`);
   }
 
-  // --- 4. Validate a role config ---
-  console.log('\n✅ Validating a custom role config:');
-  const validResult = validateRole({
-    name: 'my-custom-agent',
-    description: 'A custom agent for testing',
-    systemPrompt: 'You are a helpful assistant.',
-  });
-  console.log('  Valid config:', validResult);
+  // 2. 关键词搜索
+  console.log('\n>> 搜索 "developer" 角色:');
+  try {
+    const devResults = searchRoles('developer');
+    console.log(JSON.stringify(devResults, null, 2));
+  } catch (e: any) {
+    console.log(`  [error] ${e.message}`);
+  }
 
-  console.log('\n❌ Validating an invalid role config (missing name):');
-  const invalidResult = validateRole({
-    description: 'Missing name field',
-  } as any);
-  console.log('  Invalid config:', invalidResult);
+  console.log('\n>> 搜索 "marketing" 角色:');
+  try {
+    const mktResults = searchRoles('marketing');
+    console.log(JSON.stringify(mktResults, null, 2));
+  } catch (e: any) {
+    console.log(`  [error] ${e.message}`);
+  }
 
-  console.log('\n✅ Demo 10 complete!');
+  console.log('\n>> 搜索 "data" 角色:');
+  try {
+    const dataResults = searchRoles('data');
+    console.log(JSON.stringify(dataResults, null, 2));
+  } catch (e: any) {
+    console.log(`  [error] ${e.message}`);
+  }
+
+  // 3. 获取具体角色
+  console.log('\n' + '='.repeat(50));
+  console.log('\n>> 获取 "developer/fullstack" 角色:');
+  try {
+    const role = getRole('developer', 'fullstack');
+    if (role) {
+      console.log(`  Name: ${role.name}`);
+      console.log(`  Description: ${role.description}`);
+      console.log(`  System prompt: ${role.systemPrompt?.length || 0} chars`);
+    } else {
+      console.log('  (角色未找到 — 尝试其他 category/name)');
+    }
+  } catch (e: any) {
+    console.log(`  [error] ${e.message}`);
+  }
+
+  // 4. 验证角色配置
+  console.log('\n>> 验证自定义角色 (正确配置):');
+  try {
+    const validResult = validateRole({
+      name: 'my-custom-agent',
+      description: 'A custom agent for testing',
+      systemPrompt: 'You are a helpful assistant.',
+    });
+    console.log('  Result:', JSON.stringify(validResult));
+  } catch (e: any) {
+    console.log(`  [error] ${e.message}`);
+  }
+
+  console.log('\n>> 验证自定义角色 (缺少 name):');
+  try {
+    const invalidResult = validateRole({
+      description: 'Missing name field',
+    } as any);
+    console.log('  Result:', JSON.stringify(invalidResult));
+  } catch (e: any) {
+    console.log(`  [error] ${e.message}`);
+  }
+
+  console.log('\n' + '='.repeat(50));
+  console.log('[DONE] Demo 完成!\n');
+  console.log('核心 10 个 Demo 到此结束。推荐下一步:');
+  console.log('  - 全栈: cd e2e-local && npm install && npm start');
+  console.log('  - 进阶: npm run demo:cli-chat (Demo 11-20)\n');
 }
 
 main();

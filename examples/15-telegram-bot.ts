@@ -1,8 +1,17 @@
-// Show how to create a Telegram bot agent
+/**
+ * Demo 15: Telegram Bot — 机器人配置
+ *
+ * 展示 Telegram bot 的 OAD YAML 配置
+ * 设置 TELEGRAM_BOT_TOKEN 即可运行
+ *
+ * 运行: npm run demo:telegram
+ */
+
 import { AgentRuntime } from 'opc-agent';
 
-// This is what your agent.yaml would look like:
-const config = `
+console.log('\n=== Demo 15: Telegram Bot 配置 ===\n');
+
+const config = `# agent.yaml — Telegram Bot Agent
 apiVersion: opc/v1
 kind: Agent
 metadata:
@@ -18,9 +27,11 @@ spec:
       token: \${TELEGRAM_BOT_TOKEN}
       mode: polling
   skills:
-    - name: echo
-`;
+    - name: echo`;
 
-console.log('Telegram Bot Agent Config:');
 console.log(config);
-console.log('To run: set TELEGRAM_BOT_TOKEN env var, then `opc run`');
+console.log('\nTo run:');
+console.log('  1. Set TELEGRAM_BOT_TOKEN env var');
+console.log('  2. opc run');
+
+console.log('\n[DONE] Demo 完成!');
