@@ -1,0 +1,14 @@
+{
+  "name": "opc-e2e-local",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node --import tsx/esm src/main.ts",
+    "chat": "node --import tsx/esm src/chat.ts"
+  },
+  "dependencies": {
+    "opc-agent": "latest",
+    "deepbrain": "latest",
+    "tsx": "^4.0.0"
+  }
+}

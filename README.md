@@ -13,6 +13,21 @@
 
 ---
 
+## 🚀 端到端 Demo
+
+### 纯本地版 (Ollama)
+```bash
+cd e2e-local && npm install && npm start
+```
+
+### Cloud API 版
+```bash
+export LLM_API_KEY=sk-xxx
+cd e2e-cloud && npm install && npm start
+```
+
+---
+
 ## 这是什么？
 
 跃盟开源四件套让 AI Agent 不只能做事，还能**越做越好**：

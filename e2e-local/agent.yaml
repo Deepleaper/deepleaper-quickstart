@@ -1,0 +1,19 @@
+apiVersion: opc/v1
+kind: Agent
+metadata:
+  name: local-assistant
+  version: 1.0.0
+  description: 纯本地 AI 助手
+spec:
+  model: qwen2.5:3b
+  provider:
+    default: ollama
+  systemPrompt: |
+    你是一个智能助手。你有记忆能力，可以记住之前的对话。回复简洁有用。
+  channels:
+    - type: web
+      port: 3000
+  memory:
+    shortTerm: true
+  skills:
+    - name: faq
