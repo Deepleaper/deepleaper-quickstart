@@ -1,0 +1,19 @@
+{
+  "name": "customer-service-agent",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node --import tsx/esm src/index.ts",
+    "dev": "node --watch --import tsx/esm src/index.ts"
+  },
+  "dependencies": {
+    "deepbrain": "^1.8.0",
+    "opc-agent": "^1.3.0",
+    "agentkits": "^1.7.0",
+    "agent-workstation": "^1.1.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.7.0",
+    "typescript": "^5.7.0"
+  }
+}

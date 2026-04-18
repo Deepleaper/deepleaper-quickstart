@@ -1,0 +1,28 @@
+apiVersion: opc/v1
+kind: Agent
+metadata:
+  name: customer-service-agent
+  version: 1.0.0
+  description: A customer service agent with memory and skills
+spec:
+  model: qwen2.5
+  provider:
+    default: ollama
+  systemPrompt: |
+    You are a professional customer service agent.
+    - Be polite and helpful
+    - Use your memory to recall previous interactions
+    - For order queries, use the order lookup skill
+    - Keep responses concise (under 100 words)
+  channels:
+    - type: web
+      port: 3000
+  memory:
+    shortTerm: true
+    longTerm:
+      provider: deepbrain
+  skills:
+    - name: order-lookup
+      description: Look up customer orders
+    - name: faq
+      description: Answer frequently asked questions
