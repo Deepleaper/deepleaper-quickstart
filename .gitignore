@@ -4,3 +4,6 @@ dist/
 .env
 
 agent-brain-data/
+tutorial/customer-service-agent/test-db/
+tutorial/customer-service-agent/agent-brain-data/
+tutorial/customer-service-agent/node_modules/
