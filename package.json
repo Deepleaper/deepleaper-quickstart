@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "agent-workstation": "^2.0.0",
-    "agentkits": "^1.10.0",
+    "agentkits": "^1.10.1",
     "deepbrain": "^1.11.2",
     "opc-agent": "^3.0.0",
     "openai": "^4.0.0"
