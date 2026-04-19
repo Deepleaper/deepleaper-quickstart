@@ -16,14 +16,18 @@
 
 ## 这是什么？
 
-跃盟开源四件套让 AI Agent 不只能做事，还能**越做越好**：
+跃盟开源四件套让 AI Agent **自进化**——不只能做事，还能越做越好：
+
+> **核心理念**：别人的 Agent 用完就忘（静态的）。我们的 Agent 会学习、记忆、进化（自进化的）。
+>
+> 一个客服 Agent 第 1 天只能照着 prompt 回答。到第 30 天，它已经自动积累了上千条经验，提炼出核心产品知识，准确率从 60% 飙升到 95%——**全自动，无需人工干预。**
 
 | 项目 | 一句话 |
 |------|--------|
-| [DeepBrain](https://github.com/Deepleaper/deepbrain) | Agent 记忆引擎 — learn/recall/evolve + Vision + Context 压缩 + API Server |
-| [OPC Agent](https://github.com/Deepleaper/opc-agent) | Agent OS — 25 渠道, 浏览器自动化, 语音通话, Home Assistant, IDE Bridge, Node Network, Gateway, RL |
-| [AgentKits](https://github.com/Deepleaper/agentkits) | 多模型工具库 — 29 Provider + 18 Embedding + 40+ 模块 |
-| [Agent Workstation](https://github.com/Deepleaper/agent-workstation) | 虚拟工位 — 100+ 角色模板 + 三层知识种子 + search/validate |
+| [DeepBrain](https://github.com/Deepleaper/deepbrain) | 自进化引擎 — learn/recall/evolve 让 Agent 越用越聪明 |
+| [OPC Agent](https://github.com/Deepleaper/opc-agent) | 自进化 Agent OS — 25 渠道 + 浏览器自动化 + 语音通话 + Gateway |
+| [AgentKits](https://github.com/Deepleaper/agentkits) | 带自进化记忆的 OpenRouter — 29 Provider + withBrain() 自动串联记忆 |
+| [Agent Workstation](https://github.com/Deepleaper/agent-workstation) | 进化起点 — 100+ 角色自带知识种子，不从零开始 |
 
 ---
 
@@ -314,10 +318,10 @@ e2e-cloud/                    ⭐⭐⭐⭐ Cloud API 端到端
 
 ## 下一步
 
-- 📖 [DeepBrain 文档](https://github.com/Deepleaper/deepbrain) — Agent 记忆引擎
-- 🤖 [OPC Agent 文档](https://github.com/Deepleaper/opc-agent) — Agent OS
-- ⚡ [AgentKits 文档](https://github.com/Deepleaper/agentkits) — 带记忆的 OpenRouter
-- 🏢 [Agent Workstation](https://github.com/Deepleaper/agent-workstation) — 100+ 角色模板
+- 📖 [DeepBrain 文档](https://github.com/Deepleaper/deepbrain) — 自进化引擎
+- 🤖 [OPC Agent 文档](https://github.com/Deepleaper/opc-agent) — 自进化 Agent OS
+- ⚡ [AgentKits 文档](https://github.com/Deepleaper/agentkits) — 带自进化记忆的 OpenRouter
+- 🏢 [Agent Workstation](https://github.com/Deepleaper/agent-workstation) — 100+ 角色，自带进化起点
 
 ---
 
@@ -341,14 +345,14 @@ Quick fixes:
 
 ## What is this?
 
-Deepleaper's open-source suite makes AI Agents that **get better over time**:
+Deepleaper's open-source suite makes AI Agents **self-evolving** — they don't just do tasks, they get better over time:
 
 | Project | One-liner |
 |---------|-----------|
-| [DeepBrain](https://github.com/Deepleaper/deepbrain) | Agent memory engine — learn/recall/evolve + Vision + Context compression + API Server |
-| [OPC Agent](https://github.com/Deepleaper/opc-agent) | Agent OS — 25 channels, browser automation, voice call, Home Assistant, IDE Bridge, Node Network, Gateway, RL |
-| [AgentKits](https://github.com/Deepleaper/agentkits) | Multi-model toolkit — 29 providers + 18 embedding + 40+ modules |
-| [Agent Workstation](https://github.com/Deepleaper/agent-workstation) | Virtual workstation — 100+ role templates + 3-tier brain seeds + search/validate |
+| [DeepBrain](https://github.com/Deepleaper/deepbrain) | Self-evolution engine — learn/recall/evolve makes Agents smarter over time |
+| [OPC Agent](https://github.com/Deepleaper/opc-agent) | Self-evolving Agent OS — 25 channels + browser automation + voice + Gateway |
+| [AgentKits](https://github.com/Deepleaper/agentkits) | OpenRouter with self-evolving memory — 29 providers + withBrain() auto-connects memory |
+| [Agent Workstation](https://github.com/Deepleaper/agent-workstation) | Evolution starting points — 100+ roles with brain seeds, never start from zero |
 
 ## Prerequisites
 
