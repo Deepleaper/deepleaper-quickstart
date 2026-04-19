@@ -33,7 +33,21 @@
 
 ---
 
-## 前置条件
+## ⚡ 一键安装 / One-Line Install
+
+**macOS / Linux:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/Deepleaper/opc-agent/main/install.sh | bash
+```
+
+**Windows (PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/Deepleaper/opc-agent/main/install.ps1 | iex
+```
+
+> 自动安装 Node.js + OPC Agent + Ollama + 推荐模型，全程引导，零门槛上手。
+
+## 前置条件（手动安装）
 
 ```bash
 npm install -g opc-agent       # OPC Agent CLI
