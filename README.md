@@ -2,7 +2,7 @@
 
 # 🚀 Deepleaper Quickstart
 
-**跃盟四件套示例集：从零到生产级 Agent 的完整教程**
+**The Self-Evolving Agent Stack — 自进化 Agent 技术栈示例集**
 
 [![DeepBrain](https://img.shields.io/npm/v/deepbrain?label=deepbrain&color=blue)](https://www.npmjs.com/package/deepbrain)
 [![OPC Agent](https://img.shields.io/npm/v/opc-agent?label=opc-agent&color=green)](https://www.npmjs.com/package/opc-agent)
@@ -16,18 +16,20 @@
 
 ## 这是什么？
 
-跃盟开源四件套让 AI Agent **自进化**——不只能做事，还能越做越好：
+**The Self-Evolving Agent Stack** — 自进化 Agent 技术栈，让 AI Agent 越用越强：
 
 > **核心理念**：别人的 Agent 用完就忘（静态的）。我们的 Agent 会学习、记忆、进化（自进化的）。
 >
-> 一个客服 Agent 第 1 天只能照着 prompt 回答。到第 30 天，它已经自动积累了上千条经验，提炼出核心产品知识，准确率从 60% 飙升到 95%——**全自动，无需人工干预。**
+> 开发者使用路径：① 选模板 (Agent Templates) → ② 接模型 (Agent Model Layer) → ③ 跑起来 (Agent Runtime) → ④ 自动进化 (Agent Memory)
+>
+> **🔄 自进化飞轮**：Templates 自带 Brain Seed → Model Layer 每次调用自动 learn → Runtime 持续运行 → Memory 自动 evolve → Agent 越来越强。
 
-| 项目 | 一句话 |
-|------|--------|
-| [DeepBrain](https://github.com/Deepleaper/deepbrain) | 自进化引擎 — learn/recall/evolve 让 Agent 越用越聪明 |
-| [OPC Agent](https://github.com/Deepleaper/opc-agent) | 自进化 Agent OS — 25 渠道 + 浏览器自动化 + 语音通话 + Gateway |
-| [AgentKits](https://github.com/Deepleaper/agentkits) | 带自进化记忆的 OpenRouter — 29 Provider + withBrain() 自动串联记忆 |
-| [Agent Workstation](https://github.com/Deepleaper/agent-workstation) | 进化起点 — 100+ 角色自带知识种子，不从零开始 |
+| 项目 | 定位 | 一句话 |
+|------|------|--------|
+| [Agent Workstation](https://github.com/Deepleaper/agent-workstation) | **Agent Templates** | 100+ 专业角色模板，自带知识种子 |
+| [AgentKits](https://github.com/Deepleaper/agentkits) | **Agent Model Layer** | 一行代码接入 LLM + 自带记忆 |
+| [OPC Agent](https://github.com/Deepleaper/opc-agent) | **Agent Runtime** | 25 渠道 + 浏览器自动化 + 语音通话 + Gateway |
+| [DeepBrain](https://github.com/Deepleaper/deepbrain) | **Agent Memory** | 自进化 Agent 记忆 — learn / recall / evolve |
 
 ---
 
@@ -302,7 +304,7 @@ examples/
 ├── 02-brain-with-llm.ts      ⭐⭐  Brain + LLM 带记忆对话
 ├── 03-full-agent.ts          ⭐⭐  OPC Agent 声明式开发
 ├── 04-evolve-demo.ts         ⭐⭐⭐ 知识进化 evolve
-├── 05-workstation.ts         ⭐⭐  Agent Workstation 虚拟工位
+├── 05-workstation.ts         ⭐⭐  Agent Workstation 角色模板
 ├── 06-developer-brain.ts     ⭐⭐⭐ 开发者知识库 Brain
 ├── 07-model-recommend.ts     ⭐⭐  模型推荐 + 成本估算
 ├── 08-auto-skill.ts          ⭐⭐⭐ 自主技能学习
@@ -318,10 +320,10 @@ e2e-cloud/                    ⭐⭐⭐⭐ Cloud API 端到端
 
 ## 下一步
 
-- 📖 [DeepBrain 文档](https://github.com/Deepleaper/deepbrain) — 自进化引擎
-- 🤖 [OPC Agent 文档](https://github.com/Deepleaper/opc-agent) — 自进化 Agent OS
-- ⚡ [AgentKits 文档](https://github.com/Deepleaper/agentkits) — 带自进化记忆的 OpenRouter
-- 🏢 [Agent Workstation](https://github.com/Deepleaper/agent-workstation) — 100+ 角色，自带进化起点
+- 📖 [DeepBrain 文档](https://github.com/Deepleaper/deepbrain) — 自进化 Agent 记忆
+- 🤖 [OPC Agent 文档](https://github.com/Deepleaper/opc-agent) — Agent Runtime
+- ⚡ [AgentKits 文档](https://github.com/Deepleaper/agentkits) — Agent Model Layer
+- 🏢 [Agent Workstation](https://github.com/Deepleaper/agent-workstation) — 100+ 角色模板
 
 ---
 
@@ -341,18 +343,20 @@ Quick fixes:
 
 # 🚀 Deepleaper Quickstart
 
-**Complete tutorial collection: from zero to production-grade AI Agent**
+**The Self-Evolving Agent Stack — Complete tutorial collection**
 
 ## What is this?
 
-Deepleaper's open-source suite makes AI Agents **self-evolving** — they don't just do tasks, they get better over time:
+**The Self-Evolving Agent Stack** — four packages that make AI Agents self-evolving:
 
-| Project | One-liner |
-|---------|-----------|
-| [DeepBrain](https://github.com/Deepleaper/deepbrain) | Self-evolution engine — learn/recall/evolve makes Agents smarter over time |
-| [OPC Agent](https://github.com/Deepleaper/opc-agent) | Self-evolving Agent OS — 25 channels + browser automation + voice + Gateway |
-| [AgentKits](https://github.com/Deepleaper/agentkits) | OpenRouter with self-evolving memory — 29 providers + withBrain() auto-connects memory |
-| [Agent Workstation](https://github.com/Deepleaper/agent-workstation) | Evolution starting points — 100+ roles with brain seeds, never start from zero |
+Developer path: ① Pick a template (Agent Templates) → ② Connect models (Agent Model Layer) → ③ Run it (Agent Runtime) → ④ Auto-evolve (Agent Memory)
+
+| Project | Role | One-liner |
+|---------|------|-----------|
+| [Agent Workstation](https://github.com/Deepleaper/agent-workstation) | **Agent Templates** | 100+ professional roles with brain seeds |
+| [AgentKits](https://github.com/Deepleaper/agentkits) | **Agent Model Layer** | One-line LLM access with built-in memory |
+| [OPC Agent](https://github.com/Deepleaper/opc-agent) | **Agent Runtime** | 25 channels + browser automation + voice + Gateway |
+| [DeepBrain](https://github.com/Deepleaper/deepbrain) | **Agent Memory** | Self-Evolving Agent Memory — learn / recall / evolve |
 
 ## Prerequisites
 

@@ -1,7 +1,7 @@
 {
   "name": "deepleaper-quickstart",
   "version": "1.0.0",
-  "description": "5 分钟上手跃盟开源四件套 | Get started with Deepleaper in 5 minutes",
+  "description": "The Self-Evolving Agent Stack — quickstart examples and tutorials",
   "type": "module",
   "scripts": {
     "demo:basic": "npx tsx examples/01-basic-brain.ts",
