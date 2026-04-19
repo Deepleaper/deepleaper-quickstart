@@ -7,10 +7,10 @@
     "dev": "node --watch --import tsx/esm src/index.ts"
   },
   "dependencies": {
-    "deepbrain": "^1.8.0",
-    "opc-agent": "^1.3.0",
-    "agentkits": "^1.7.0",
-    "agent-workstation": "^1.1.0"
+    "deepbrain": "^2.0.4",
+    "opc-agent": "^4.0.0",
+    "agentkits": "^2.0.0",
+    "agent-workstation": "^2.1.0"
   },
   "devDependencies": {
     "tsx": "^4.7.0",
