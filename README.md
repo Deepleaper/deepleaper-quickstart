@@ -20,10 +20,10 @@
 
 | 项目 | 一句话 |
 |------|--------|
-| [DeepBrain](https://github.com/Deepleaper/deepbrain) | Agent 记忆引擎 — learn/recall/evolve + export/import |
-| [OPC Agent](https://github.com/Deepleaper/opc-agent) | Agent OS — CLI TUI, daemon, cron, auto-skill, sub-agents |
-| [AgentKits](https://github.com/Deepleaper/agentkits) | 带记忆的 OpenRouter — 19+ Provider + model recommend |
-| [Agent Workstation](https://github.com/Deepleaper/agent-workstation) | 虚拟工位 — 100+ 角色模板 + search/validate |
+| [DeepBrain](https://github.com/Deepleaper/deepbrain) | Agent 记忆引擎 — learn/recall/evolve + Vision + Context 压缩 + API Server |
+| [OPC Agent](https://github.com/Deepleaper/opc-agent) | Agent OS — 25 渠道, 浏览器自动化, 语音通话, Home Assistant, IDE Bridge, Node Network, Gateway, RL |
+| [AgentKits](https://github.com/Deepleaper/agentkits) | 多模型工具库 — 29 Provider + 18 Embedding + 40+ 模块 |
+| [Agent Workstation](https://github.com/Deepleaper/agent-workstation) | 虚拟工位 — 100+ 角色模板 + 三层知识种子 + search/validate |
 
 ---
 
@@ -345,10 +345,10 @@ Deepleaper's open-source suite makes AI Agents that **get better over time**:
 
 | Project | One-liner |
 |---------|-----------|
-| [DeepBrain](https://github.com/Deepleaper/deepbrain) | Agent memory engine — learn/recall/evolve + export/import |
-| [OPC Agent](https://github.com/Deepleaper/opc-agent) | Agent OS — CLI TUI, daemon, cron, auto-skill, sub-agents |
-| [AgentKits](https://github.com/Deepleaper/agentkits) | LLM router + memory — 19+ providers + model recommend |
-| [Agent Workstation](https://github.com/Deepleaper/agent-workstation) | Virtual workstation — 100+ role templates + search/validate |
+| [DeepBrain](https://github.com/Deepleaper/deepbrain) | Agent memory engine — learn/recall/evolve + Vision + Context compression + API Server |
+| [OPC Agent](https://github.com/Deepleaper/opc-agent) | Agent OS — 25 channels, browser automation, voice call, Home Assistant, IDE Bridge, Node Network, Gateway, RL |
+| [AgentKits](https://github.com/Deepleaper/agentkits) | Multi-model toolkit — 29 providers + 18 embedding + 40+ modules |
+| [Agent Workstation](https://github.com/Deepleaper/agent-workstation) | Virtual workstation — 100+ role templates + 3-tier brain seeds + search/validate |
 
 ## Prerequisites
 
