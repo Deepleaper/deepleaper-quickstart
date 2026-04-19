@@ -33,7 +33,7 @@ async function main() {
   await agent.init();
   console.log('✅ Agent initialized\n');
 
-  // Demo conversation
+  // Demo conversation (v4 Message format: { id, role, content, timestamp })
   const messages = [
     '你好！我是 Ray，我在做一个 AI Agent 框架',
     '帮我分析一下 AI Agent 市场现在的竞争格局',
@@ -45,11 +45,9 @@ async function main() {
     console.log(`👤 ${msg}`);
     const response = await agent.handleMessage({
       id: String(Date.now()),
+      role: 'user',
       content: msg,
-      sender: 'Ray',
-      channel: 'demo',
-      sessionId: 'demo-session',
-      timestamp: new Date(),
+      timestamp: Date.now(),
     });
     console.log(`🤖 ${response.content}\n`);
     // Small delay to avoid rate limits

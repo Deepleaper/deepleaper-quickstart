@@ -7,8 +7,8 @@
     "chat": "node --import tsx/esm src/chat.ts"
   },
   "dependencies": {
-    "opc-agent": "latest",
-    "deepbrain": "latest",
+    "opc-agent": "^4.0.0",
+    "deepbrain": "^2.0.0",
     "tsx": "^4.0.0"
   }
 }

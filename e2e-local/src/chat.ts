@@ -33,11 +33,9 @@ async function main() {
       }
       const response = await agent.handleMessage({
         id: String(Date.now()),
+        role: 'user',
         content: input,
-        sender: 'user',
-        channel: 'chat',
-        sessionId: 'interactive',
-        timestamp: new Date(),
+        timestamp: Date.now(),
       });
       console.log(`🤖 Agent: ${response.content}\n`);
       ask();

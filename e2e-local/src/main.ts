@@ -1,12 +1,13 @@
-import { BaseAgent, InMemoryStore, getBuiltinTools, SkillRegistry, BaseSkill } from 'opc-agent';
+import { BaseAgent, InMemoryStore, getBuiltinTools, BaseSkill } from 'opc-agent';
+import type { AgentContext, Message, SkillResult } from 'opc-agent';
 
-// --- FAQ Skill ---
+// --- FAQ Skill (v4 API: execute takes context + message, returns SkillResult) ---
 class FAQSkill extends BaseSkill {
   name = 'faq';
   description = 'Answer frequently asked questions';
-  triggers = [/退款|退货|配送|支付|FAQ|常见问题/i];
 
-  async execute(input: string): Promise<string> {
+  async execute(_context: AgentContext, message: Message): Promise<SkillResult> {
+    const input = message.content;
     const faqs: Record<string, string> = {
       '退款': '💰 退款将在3-5个工作日内原路退回。',
       '退货': '📦 收到商品7天内可申请退货，请保持商品完好。',
@@ -14,9 +15,9 @@ class FAQSkill extends BaseSkill {
       '支付': '💳 支持支付宝、微信支付、银行卡、花呗。',
     };
     for (const [key, answer] of Object.entries(faqs)) {
-      if (input.includes(key)) return answer;
+      if (input.includes(key)) return this.match(answer, 1.0);
     }
-    return '常见问题：退款 | 退货 | 配送 | 支付\n请问您想了解哪个？';
+    return this.noMatch();
   }
 }
 
@@ -43,9 +44,10 @@ async function main() {
     memory: new InMemoryStore(),
   });
   await agent.init();
+  agent.registerSkill(new FAQSkill());
   console.log('✅ Agent initialized\n');
 
-  // Demo conversation
+  // Demo conversation (v4 Message format: { id, role, content, timestamp })
   const messages = [
     '你好！我是 Ray，我在做一个 AI 公司',
     '我想了解退款政策',
@@ -56,29 +58,18 @@ async function main() {
 
   for (const msg of messages) {
     console.log(`👤 ${msg}`);
-    
-    // Check FAQ skill first
-    const faqSkill = new FAQSkill();
-    if (faqSkill.triggers.some(t => t.test(msg))) {
-      const answer = await faqSkill.execute(msg);
-      console.log(`🤖 [FAQ] ${answer}\n`);
-      continue;
-    }
-
     const response = await agent.handleMessage({
       id: String(Date.now()),
+      role: 'user',
       content: msg,
-      sender: 'Ray',
-      channel: 'demo',
-      sessionId: 'demo-session',
-      timestamp: new Date(),
+      timestamp: Date.now(),
     });
     console.log(`🤖 ${response.content}\n`);
   }
 
   // Show tools
-  const tools = getBuiltinTools('.');
-  console.log(`\n🔧 可用工具: ${tools.map(t => t.definition.name).join(', ')}`);
+  const tools = getBuiltinTools();
+  console.log(`\n🔧 可用工具: ${tools.map((t: any) => t.definition.name).join(', ')}`);
   
   console.log('\n✨ Demo complete! Run `npm run chat` for interactive mode.');
 }

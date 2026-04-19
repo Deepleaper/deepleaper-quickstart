@@ -47,40 +47,39 @@ function main() {
     console.log(`  [error] ${e.message}`);
   }
 
-  // 3. 获取具体角色
+  // 3. 获取具体角色 (v2 API: getRole returns { category, role, files })
   console.log('\n' + '='.repeat(50));
-  console.log('\n>> 获取 "developer/fullstack" 角色:');
+  console.log('\n>> 获取 "engineering/frontend-developer" 角色:');
   try {
-    const role = getRole('developer', 'fullstack');
+    const role = getRole('engineering', 'frontend-developer');
     if (role) {
-      console.log(`  Name: ${role.name}`);
-      console.log(`  Description: ${role.description}`);
-      console.log(`  System prompt: ${role.systemPrompt?.length || 0} chars`);
+      console.log(`  Category: ${role.category}`);
+      console.log(`  Role: ${role.role}`);
+      const fileNames = Object.keys(role.files).filter((f: string) => !f.endsWith('/'));
+      console.log(`  Files: ${fileNames.join(', ')}`);
+      const systemPrompt = role.files['system.md'];
+      if (systemPrompt) {
+        console.log(`  System prompt: ${systemPrompt.length} chars`);
+      }
     } else {
-      console.log('  (角色未找到 — 尝试其他 category/name)');
+      console.log('  (角色未找到)');
     }
   } catch (e: any) {
     console.log(`  [error] ${e.message}`);
   }
 
-  // 4. 验证角色配置
-  console.log('\n>> 验证自定义角色 (正确配置):');
+  // 4. 验证角色配置 (v2 API: validateRole takes category + role name strings)
+  console.log('\n>> 验证已有角色 (engineering/frontend-developer):');
   try {
-    const validResult = validateRole({
-      name: 'my-custom-agent',
-      description: 'A custom agent for testing',
-      systemPrompt: 'You are a helpful assistant.',
-    });
+    const validResult = validateRole('engineering', 'frontend-developer');
     console.log('  Result:', JSON.stringify(validResult));
   } catch (e: any) {
     console.log(`  [error] ${e.message}`);
   }
 
-  console.log('\n>> 验证自定义角色 (缺少 name):');
+  console.log('\n>> 验证不存在的角色:');
   try {
-    const invalidResult = validateRole({
-      description: 'Missing name field',
-    } as any);
+    const invalidResult = validateRole('nonexistent', 'fake-role');
     console.log('  Result:', JSON.stringify(invalidResult));
   } catch (e: any) {
     console.log(`  [error] ${e.message}`);
