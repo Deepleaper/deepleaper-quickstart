@@ -2,451 +2,161 @@
 
 # 🚀 Deepleaper Quickstart
 
-**The Self-Evolving Agent Stack — 自进化 Agent 技术栈示例集**
+### Get up and running with the Self-Evolving Agent Stack in 60 seconds
 
-[![DeepBrain](https://img.shields.io/npm/v/deepbrain?label=deepbrain&color=blue)](https://www.npmjs.com/package/deepbrain)
-[![OPC Agent](https://img.shields.io/npm/v/opc-agent?label=opc-agent&color=green)](https://www.npmjs.com/package/opc-agent)
-[![AgentKits](https://img.shields.io/npm/v/agentkits?label=agentkits&color=orange)](https://www.npmjs.com/package/agentkits)
-[![Agent Workstation](https://img.shields.io/npm/v/agent-workstation?label=agent-workstation&color=purple)](https://www.npmjs.com/package/agent-workstation)
-[![License](https://img.shields.io/badge/license-Apache--2.0-brightgreen)](LICENSE)
+### 60 秒上手自进化 Agent 全家桶
+
+[![License](https://img.shields.io/badge/License-BSL--1.1-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://python.org)
+[![Website](https://img.shields.io/badge/Website-deepleaper.com-purple)](https://www.deepleaper.com)
+
+[Website](https://www.deepleaper.com) · [Portal](https://portal.deepleaper.com) · [Discord](#) · [Docs](#)
 
 </div>
 
 ---
 
-## 这是什么？
+## 🤔 Which Product Should I Use? / 我该选哪个？
 
-**The Self-Evolving Agent Stack** — 自进化 Agent 技术栈，让 AI Agent 越用越强：
+```
+Do you need 100% local, zero-cloud?
+├── Yes → OPC Agent 🤖
+└── No
+    ├── Are you in China? / 你在中国吗？
+    │   ├── Yes → Leaper Agent CN 🇨🇳
+    │   └── No → Leaper Agent 🚀
+    └── Just need memory for my existing agent?
+        └── Yes → OPC DeepBrain 🧠
+```
 
-> **核心理念**：别人的 Agent 用完就忘（静态的）。我们的 Agent 会学习、记忆、进化（自进化的）。
->
-> 开发者使用路径：① 选模板 (Agent Templates) → ② 接模型 (Agent Model Layer) → ③ 跑起来 (Agent Runtime) → ④ 自动进化 (Agent Memory)
->
-> **🔄 自进化飞轮**：Templates 自带 Brain Seed → Model Layer 每次调用自动 learn → Runtime 持续运行 → Memory 自动 evolve → Agent 越来越强。
+## 📊 Product Comparison / 产品对比
 
-| 项目 | 定位 | 一句话 |
-|------|------|--------|
-| [Agent Workstation](https://github.com/Deepleaper/agent-workstation) | **Agent Templates** | 100+ 专业角色模板，自带知识种子 |
-| [AgentKits](https://github.com/Deepleaper/agentkits) | **Agent Model Layer** | 一行代码接入 LLM + 自带记忆 |
-| [OPC Agent](https://github.com/Deepleaper/opc-agent) | **Agent Runtime** | 25 渠道 + 浏览器自动化 + 语音通话 + Gateway |
-| [DeepBrain](https://github.com/Deepleaper/deepbrain) | **Agent Memory** | 自进化 Agent 记忆 — learn / recall / evolve |
+| Feature | OPC Agent | Leaper Agent | Leaper Agent CN | OPC DeepBrain |
+|---------|-----------|-------------|----------------|---------------|
+| **定位** | Local-first Agent | Global Agent Framework | China-optimized Agent | Memory Engine |
+| **LLM** | Ollama (local) | OpenAI / Claude / Gemini | 通义 / DeepSeek / 文心 | N/A (bring your own) |
+| **Cloud Dependency** | None ☁️❌ | API keys required | API keys required | None ☁️❌ |
+| **Cost** | $0 (your hardware) | Pay-per-token | Pay-per-token | $0 |
+| **Memory** | ✅ DeepBrain built-in | ✅ DeepBrain built-in | ✅ DeepBrain built-in | ✅ Standalone |
+| **Multi-Agent** | ❌ | ✅ | ✅ | N/A |
+| **Telegram Bot** | ❌ | ✅ | ✅ | N/A |
+| **MCP Support** | ❌ | ✅ | ✅ | N/A |
+| **Privacy** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| **PyPI** | `opc-agent` | `leaper-agent` | `leaper-agent-cn` | `opc-deepbrain` |
 
 ---
 
-## ⚡ 一键安装 / One-Line Install
+## ⚡ 30-Second Quick Starts
 
-**macOS / Linux:**
-```bash
-curl -fsSL https://raw.githubusercontent.com/Deepleaper/opc-agent/main/install.sh | bash
-```
-
-**Windows (PowerShell):**
-```powershell
-irm https://raw.githubusercontent.com/Deepleaper/opc-agent/main/install.ps1 | iex
-```
-
-> 自动安装 Node.js + OPC Agent + Ollama + 推荐模型，全程引导，零门槛上手。
-
-## 前置条件（手动安装）
+### 🤖 OPC Agent — 100% Local, Zero Cost
 
 ```bash
-npm install -g opc-agent       # OPC Agent CLI
-# 可选：安装 Ollama 用于本地 LLM（免费，无需 API Key）
-# https://ollama.com
-ollama pull nomic-embed-text   # embedding 模型（274MB）
-ollama pull qwen2.5            # chat 模型（Demo 02 需要）
+pip install opc-agent
+ollama pull llama3.1
+opc-agent init
+opc-agent chat
 ```
+
+> Your conversations are stored locally. DeepBrain learns from every interaction. No data ever leaves your machine.
+
+### 🚀 Leaper Agent — Global, Multi-Provider
+
+```bash
+pip install leaper-agent
+export OPENAI_API_KEY=sk-xxx    # or ANTHROPIC_API_KEY, GEMINI_API_KEY
+leaper-agent init
+leaper-agent chat
+```
+
+> Supports OpenAI, Claude, Gemini, and more. Switch providers with a single config change.
+
+### 🇨🇳 Leaper Agent CN — 中国版
+
+```bash
+pip install leaper-agent-cn
+export DASHSCOPE_API_KEY=sk-xxx   # 通义千问
+leaper-agent-cn init
+leaper-agent-cn chat
+```
+
+> 国产大模型原生支持，国内网络优化，中文文档。
+
+### 🧠 OPC DeepBrain — Standalone Memory
+
+```python
+from opc_deepbrain import DeepBrain
+
+brain = DeepBrain("./my_brain.db")
+brain.learn("The user prefers concise answers", source="conversation")
+results = brain.recall("What does the user prefer?")
+```
+
+> 3 lines. Zero dependencies. Instant long-term memory for any agent.
 
 ---
 
-## 快速开始
+## 🧠 DeepBrain: 6-Layer Memory Architecture
 
-```bash
-git clone https://github.com/Deepleaper/deepleaper-quickstart.git
-cd deepleaper-quickstart
-npm install
+What makes Deepleaper agents different? **DeepBrain** — a self-evolving knowledge engine with 6 memory layers:
+
 ```
+Layer 0: ⚡ Flash Memory     — Current session buffer (minutes)
+Layer 1: 📝 Short-Term       — Recent interactions (hours-days)
+Layer 2: 📚 Long-Term        — Validated knowledge (weeks-months)
+Layer 3: 🏗️ Consolidated     — Cross-session patterns (months)
+Layer 4: 🗄️ Archived         — Historical reference (permanent)
+Layer 5: 🔮 Meta-Knowledge   — Knowledge about knowledge (self-awareness)
+```
+
+Knowledge **automatically promotes** through layers based on relevance, frequency, and validation — just like human memory.
 
 ---
 
-## Demo 目录（学习路径，由浅入深）
+## 🏗️ Architecture Overview / 架构总览
 
-| # | Demo | 难度 | 学习目标 | 运行命令 |
-|---|------|------|---------|----------|
-| 01 | [basic-brain](#01-basic-brain) | ⭐ | DeepBrain 基础：put/get/query | `npm run demo:basic` |
-| 02 | [brain-with-llm](#02-brain-with-llm) | ⭐⭐ | Brain + LLM 语义搜索 | `npm run demo:llm` |
-| 03 | [full-agent](#03-full-agent) | ⭐⭐ | 完整 Agent 创建和对话 | `npm run demo:agent` |
-| 04 | [evolve-demo](#04-evolve-demo) | ⭐⭐⭐ | 知识自动进化 | `npm run demo:evolve` |
-| 05 | [workstation](#05-workstation) | ⭐⭐ | 工位模板使用 | `npm run demo:workstation` |
-| 06 | [developer-brain](#06-developer-brain) | ⭐⭐⭐ | 开发者专属 Brain | `npm run demo:brain` |
-| 07 | [model-recommend](#07-model-recommend) | ⭐⭐ | 智能模型推荐 | `npm run demo:model` |
-| 08 | [auto-skill](#08-auto-skill) | ⭐⭐⭐ | Skill 自动学习 | `npm run demo:skill` |
-| 09 | [subagent](#09-subagent) | ⭐⭐⭐ | 多 Agent 协作 | `npm run demo:subagent` |
-| 10 | [role-search](#10-role-search) | ⭐ | 角色搜索和浏览 | `npm run demo:roles` |
-| e2e-local | [端到端(本地)](#e2e-local-端到端本地) | ⭐⭐⭐⭐ | Ollama 全本地完整流程 | `cd e2e-local && npm start` |
-| e2e-cloud | [端到端(云端)](#e2e-cloud-端到端云端) | ⭐⭐⭐⭐ | Cloud API 完整流程 | `cd e2e-cloud && npm start` |
+```
+┌──────────────────────────────────────────────────────┐
+│                   User / 用户                         │
+├──────────┬───────────────┬───────────────────────────┤
+│ OPC Agent│  Leaper Agent │  Leaper Agent CN          │
+│ (Ollama) │  (OpenAI/etc) │  (通义/DeepSeek)           │
+├──────────┴───────────────┴───────────────────────────┤
+│                  🧠 OPC DeepBrain                     │
+│            6-Layer Self-Evolving Memory               │
+│              ┌─────────────────────┐                  │
+│              │   4-Gate Quality    │                  │
+│              │   Control System    │                  │
+│              └─────────────────────┘                  │
+│                   SQLite (local)                      │
+└──────────────────────────────────────────────────────┘
+```
+
+## 📚 Learn More
+
+| Resource | Link |
+|----------|------|
+| OPC Agent Docs | [github.com/deepleaper/opc-agent](https://github.com/deepleaper/opc-agent) |
+| Leaper Agent Docs | [github.com/deepleaper/leaper-agent](https://github.com/deepleaper/leaper-agent) |
+| Leaper Agent CN Docs | [github.com/deepleaper/leaper-agent-cn](https://github.com/deepleaper/leaper-agent-cn) |
+| DeepBrain Docs | [github.com/deepleaper/opc-deepbrain](https://github.com/deepleaper/opc-deepbrain) |
+| Website | [www.deepleaper.com](https://www.deepleaper.com) |
+
+## 📄 License
+
+BSL-1.1 — see [LICENSE](LICENSE) for details.
+
+## 🤝 Contributing
+
+We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+📧 Contact: [tech@deepleaper.com](mailto:tech@deepleaper.com)
 
 ---
 
-## 推荐学习路线
+<div align="center">
 
-| 路线 | 适合人群 | 路径 |
-|------|---------|------|
-| 🟢 新手入门 | 第一次接触 Agent 开发 | 01 → 03 → 05 → 10 |
-| 🟡 进阶探索 | 想深入理解记忆与进化 | 02 → 04 → 07 → 08 |
-| 🔴 全栈实战 | 要搭建完整 Agent 系统 | e2e-local 或 e2e-cloud |
+**Built with ❤️ by [Deepleaper Technology / 跃盟科技](https://www.deepleaper.com)**
 
----
+*Your agent remembers. Your agent evolves. Your agent gets smarter.*
 
-## Demo 详解
-
-### 01 basic-brain
-
-**DeepBrain 基础：学习经验 → 语义检索 → 精准召回**
-
-```bash
-npm run demo:basic
-```
-
-预期输出：
-```
-🧠 DeepBrain 基础 Demo - learn / recall
-✅ Brain 初始化成功
-📝 Agent 学习了 5 条经验
-🔍 查询: "如何处理客户投诉" → 召回相关经验，匹配度 85%+
-```
-
-### 02 brain-with-llm
-
-**Brain + LLM 联动：recall(检索) → LLM(生成) → learn(存储)**
-
-```bash
-npm run demo:llm
-```
-
-需要 Ollama qwen2.5 或设置 `LLM_API_KEY`。
-
-预期输出：
-```
-🤖 Embedding: ollama | Chat: Ollama (qwen2.5)
-📚 知识库已加载
-💬 用户提问 → recall 3 条相关记忆 → LLM 生成回复 → learn 新经验
-```
-
-### 03 full-agent
-
-**OPC Agent 声明式配置展示：OAD 规范 + 11 渠道 + DeepBrain 集成**
-
-```bash
-npm run demo:agent
-```
-
-纯展示，无需 Ollama 或 API Key。
-
-预期输出：
-```
-🤖 OPC Agent Demo - Agent OS
-📋 CLI 命令一览 | 📝 OAD 配置示例 | 📡 11 个渠道支持
-```
-
-### 04 evolve-demo
-
-**知识自动进化：20 条零散经验 → evolve → 提炼成精华知识**
-
-```bash
-npm run demo:evolve
-```
-
-这是 DeepBrain 的**核心差异化能力**。
-
-预期输出：
-```
-🧬 知识进化 Demo - evolve
-📝 学习 20 条零散经验...
-🔄 执行知识进化 (evolve)...
-✅ 处理: 20 条 → 精炼: 4 条结构化知识
-```
-
-### 05 workstation
-
-**浏览 100+ 角色模板，查看 OAD 配置 + System Prompt**
-
-```bash
-npm run demo:workstation
-```
-
-无需 API Key。
-
-预期输出：
-```
-🏢 Agent Workstation Demo
-📂 浏览 10+ 分类, 100+ 角色模板
-📋 示例角色: frontend-developer, seo-specialist, data-analyst
-```
-
-### 06 developer-brain
-
-**开发者知识库：put(写入) → get(读取) → list(列表) → query(语义搜索)**
-
-```bash
-npm run demo:brain
-```
-
-预期输出：
-```
-📖 开发者知识库 Demo
-✍️ 写入 4 篇知识 (React Hooks, Docker, REST API, Git)
-🔍 语义搜索: "如何优化 React 性能" → 匹配到 React Hooks 指南
-```
-
-### 07 model-recommend
-
-**智能模型推荐 + token 成本估算 + Provider 健康检查**
-
-```bash
-npm run demo:model
-```
-
-无需 API Key（推荐和估价功能）。
-
-预期输出：
-```
-🎯 推荐 chat 模型 (免费/本地): ollama/qwen2.5
-💰 gpt-4o 成本估算: 1000 input + 500 output = $0.0075
-🏥 Ollama provider: healthy
-```
-
-### 08 auto-skill
-
-**OPC Agent 自主技能学习概念展示**
-
-```bash
-npm run demo:skill
-```
-
-纯概念展示，展示 Agent 如何从对话中自动提炼可复用 Skill。
-
-### 09 subagent
-
-**多 Agent 协作：主 Agent 分发子任务，并行执行后汇总结果**
-
-```bash
-npm run demo:subagent
-```
-
-纯概念展示，展示 Sub-Agent 并行执行架构。
-
-### 10 role-search
-
-**角色搜索 + 验证：搜索角色模板、获取热门角色、校验自定义配置**
-
-```bash
-npm run demo:roles
-```
-
-无需 API Key。
-
-预期输出：
-```
-🔍 搜索 "developer" → 5 个匹配角色
-⭐ 热门角色: fullstack, data-analyst, product-manager...
-✅ 自定义角色验证通过
-```
-
-### e2e-local 端到端(本地)
-
-**Ollama 全本地完整流程：多轮对话 + 记忆 + 技能 + 知识进化，零成本零网络**
-
-```bash
-cd e2e-local && npm install && npm start
-```
-
-需要 Ollama + qwen2.5:3b 模型。
-
-### e2e-cloud 端到端(云端)
-
-**Cloud API 完整流程：支持 OpenAI / DeepSeek / 通义千问等**
-
-```bash
-export LLM_API_KEY=sk-xxx
-cd e2e-cloud && npm install && npm start
-```
-
----
-
-## 更多 Demo（进阶）
-
-| Demo | 说明 | 运行命令 |
-|------|------|----------|
-| 11-cli-chat | 编程式多轮对话 | `npm run demo:cli-chat` |
-| 12-daemon-cron | 定时任务调度 | `npm run demo:daemon` |
-| 13-auto-skill-learning | 技能学习系统 | `npm run demo:auto-skill` |
-| 14-subagent-parallel | 并行子代理 | `npm run demo:parallel` |
-| 15-telegram-bot | Telegram 机器人 | `npm run demo:telegram` |
-| 16-built-in-tools | 内置工具 | `npm run demo:tools` |
-| 17-mcp-client | MCP 客户端 | `npm run demo:mcp` |
-| 18-full-agent-yaml | 完整 YAML 配置 | `npm run demo:full-yaml` |
-| 19-brain-with-agent | 四件套集成 | `npm run demo:integration` |
-| 20-cost-calculator | 成本计算器 | `npm run demo:cost` |
-| 21-brain-seeds | 三层知识种子 | `npm run demo:seeds` |
-
----
-
-## 全部本地运行
-
-Demo 01-06 默认使用 Ollama 本地模型。Demo 03、05、07-10 无需任何服务。
-
-也支持云端 Provider：
-```bash
-export OPENAI_API_KEY=sk-xxx
-export DEEPSEEK_API_KEY=sk-xxx
-export GEMINI_API_KEY=xxx
-```
-
-运行全部核心 Demo：
-```bash
-npm run demo:all
-```
-
----
-
-## 目录结构
-
-```
-examples/
-├── 01-basic-brain.ts         ⭐   DeepBrain learn/recall
-├── 02-brain-with-llm.ts      ⭐⭐  Brain + LLM 带记忆对话
-├── 03-full-agent.ts          ⭐⭐  OPC Agent 声明式开发
-├── 04-evolve-demo.ts         ⭐⭐⭐ 知识进化 evolve
-├── 05-workstation.ts         ⭐⭐  Agent Workstation 角色模板
-├── 06-developer-brain.ts     ⭐⭐⭐ 开发者知识库 Brain
-├── 07-model-recommend.ts     ⭐⭐  模型推荐 + 成本估算
-├── 08-auto-skill.ts          ⭐⭐⭐ 自主技能学习
-├── 09-subagent.ts            ⭐⭐⭐ 多 Agent 协作
-├── 10-role-search.ts         ⭐   角色搜索 + 验证
-├── 11~20                     进阶 Demo（CLI/Cron/MCP/集成等）
-├── 21-brain-seeds.ts         ⭐⭐  三层知识种子 + 知识进化
-e2e-local/                    ⭐⭐⭐⭐ Ollama 全本地端到端
-e2e-cloud/                    ⭐⭐⭐⭐ Cloud API 端到端
-```
-
----
-
-## 下一步
-
-- 📖 [DeepBrain 文档](https://github.com/Deepleaper/deepbrain) — 自进化 Agent 记忆
-- 🤖 [OPC Agent 文档](https://github.com/Deepleaper/opc-agent) — Agent Runtime
-- ⚡ [AgentKits 文档](https://github.com/Deepleaper/agentkits) — Agent Model Layer
-- 🏢 [Agent Workstation](https://github.com/Deepleaper/agent-workstation) — 100+ 角色模板
-
----
-
-## ❓ 常见问题 / Troubleshooting
-
-遇到问题？查看 [FAQ.md](./FAQ.md) 获取完整的常见问题解答。
-
-Quick fixes:
-- 版本问题: `rm -rf node_modules package-lock.json && npm install`
-- Ollama 未启动: `ollama serve`（另开终端）
-- Node 版本: 推荐 Node 22 LTS
-
----
-
-<details>
-<summary><h2>🌍 English Version</h2></summary>
-
-# 🚀 Deepleaper Quickstart
-
-**The Self-Evolving Agent Stack — Complete tutorial collection**
-
-## What is this?
-
-**The Self-Evolving Agent Stack** — four packages that make AI Agents self-evolving:
-
-Developer path: ① Pick a template (Agent Templates) → ② Connect models (Agent Model Layer) → ③ Run it (Agent Runtime) → ④ Auto-evolve (Agent Memory)
-
-| Project | Role | One-liner |
-|---------|------|-----------|
-| [Agent Workstation](https://github.com/Deepleaper/agent-workstation) | **Agent Templates** | 100+ professional roles with brain seeds |
-| [AgentKits](https://github.com/Deepleaper/agentkits) | **Agent Model Layer** | One-line LLM access with built-in memory |
-| [OPC Agent](https://github.com/Deepleaper/opc-agent) | **Agent Runtime** | 25 channels + browser automation + voice + Gateway |
-| [DeepBrain](https://github.com/Deepleaper/deepbrain) | **Agent Memory** | Self-Evolving Agent Memory — learn / recall / evolve |
-
-## Prerequisites
-
-```bash
-npm install -g opc-agent       # OPC Agent CLI
-# Optional: Ollama for local LLM (free, no API key needed)
-# https://ollama.com
-ollama pull nomic-embed-text   # embedding model (274MB)
-ollama pull qwen2.5            # chat model (Demo 02)
-```
-
-## Quick Start
-
-```bash
-git clone https://github.com/Deepleaper/deepleaper-quickstart.git
-cd deepleaper-quickstart
-npm install
-```
-
-## Demo Directory (Progressive Learning Path)
-
-| # | Demo | Difficulty | Learning Goal | Command |
-|---|------|-----------|---------------|---------|
-| 01 | basic-brain | ⭐ | DeepBrain basics: put/get/query | `npm run demo:basic` |
-| 02 | brain-with-llm | ⭐⭐ | Brain + LLM semantic search | `npm run demo:llm` |
-| 03 | full-agent | ⭐⭐ | Complete Agent creation & chat | `npm run demo:agent` |
-| 04 | evolve-demo | ⭐⭐⭐ | Auto knowledge evolution | `npm run demo:evolve` |
-| 05 | workstation | ⭐⭐ | Workstation role templates | `npm run demo:workstation` |
-| 06 | developer-brain | ⭐⭐⭐ | Developer knowledge base | `npm run demo:brain` |
-| 07 | model-recommend | ⭐⭐ | Smart model recommendation | `npm run demo:model` |
-| 08 | auto-skill | ⭐⭐⭐ | Auto skill learning | `npm run demo:skill` |
-| 09 | subagent | ⭐⭐⭐ | Multi-agent collaboration | `npm run demo:subagent` |
-| 10 | role-search | ⭐ | Role search & browse | `npm run demo:roles` |
-| e2e-local | End-to-end (local) | ⭐⭐⭐⭐ | Full Ollama local pipeline | `cd e2e-local && npm start` |
-| e2e-cloud | End-to-end (cloud) | ⭐⭐⭐⭐ | Full Cloud API pipeline | `cd e2e-cloud && npm start` |
-
-## Recommended Learning Paths
-
-| Path | For | Route |
-|------|-----|-------|
-| 🟢 Beginner | First time with Agent dev | 01 → 03 → 05 → 10 |
-| 🟡 Intermediate | Deeper memory & evolution | 02 → 04 → 07 → 08 |
-| 🔴 Full-stack | Building complete Agent systems | e2e-local or e2e-cloud |
-
-## Run All Core Demos
-
-```bash
-npm run demo:all
-```
-
-## Cloud Providers
-
-```bash
-export OPENAI_API_KEY=sk-xxx
-export DEEPSEEK_API_KEY=sk-xxx
-export GEMINI_API_KEY=xxx
-```
-
-## Additional Demos (11-20)
-
-```bash
-npm run demo:cli-chat    # Programmatic multi-turn chat
-npm run demo:daemon      # Cron/scheduled jobs
-npm run demo:auto-skill  # Skill learning system
-npm run demo:parallel    # Parallel sub-agents
-npm run demo:telegram    # Telegram bot config
-npm run demo:tools       # Built-in tools
-npm run demo:mcp         # MCP client
-npm run demo:full-yaml   # Complete agent.yaml
-npm run demo:integration # 4-package integration
-npm run demo:cost        # Model cost calculator
-npm run demo:seeds       # 3-tier brain seeds
-```
-
-## License
-
-Apache-2.0
-
-</details>
+</div>
